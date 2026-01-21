@@ -1,6 +1,7 @@
 package com.example.testjdsapp
 
 import android.app.Application
+import com.example.testjdsapp.fonts.CustomFontAssetManager
 import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
@@ -28,6 +29,10 @@ class ReactNativeApplication : Application(), ReactApplication {
     override fun onCreate() {
         super.onCreate()
         SoLoader.init(this, false)
+        
+        // Register custom fonts from res/font for React Native
+        CustomFontAssetManager.registerFonts(this)
+        
         if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {
             load()
         }
